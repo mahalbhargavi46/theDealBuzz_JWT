@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+  <div class="col=md-4 register-product">
+    <!-- Form card creation -->
+    <div class="card-body">
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="inputPrice">Price </label>
+          <input class="form-control" type="number" formControlName="price">
+          <!-- If error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.price.errors?.required">
+            Please Enter the price
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputLocality">Locality </label>
+          <input class="form-control" type="text" formControlName="locality">
+          <!-- If error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.locality.errors?.required">
+            Please enter the locality
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputLocality">City </label>
+          <input class="form-control" type="text" formControlName="city">
+          <!-- If error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.city.errors?.required">
+            Please enter the city
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputProvince">Province </label>
+          <input class="form-control" type="text" formControlName="province">
+          <!-- If error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.province.errors?.required">
+            Please enter province
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputpostalCode">PostalCode </label>
+          <input class="form-control" type="text" formControlName="postalCode">
+          <!-- If error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.postalCode.errors?.required">
+            Please enter postal Code
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && myForm.postalCode.errors?.pattern">
+            Enter valid postal code
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3">Building Type</label>
+          <select class="custom-select form-control" (change)="updateForm($event.target.value)" formControlName="buildingType">
+            <option value="">Choose...</option>
+            <option *ngFor="let type of buildingType" value="{{type}}">{{type}}</option>
+          </select>
+          <!-- If error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.buildingType.errors?.required">
+            Enter Building Type
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Textarea">Description</label>
+          <textarea class="form-control" formControlName="description">
+            <div class="invalid-feedback" *ngIf="submitted && myForm.description.errors?.required">
+              Enter Description
+            </div>
+          </textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- price,locality,city,province,postalCode,buildingType,description -->

@@ -1,0 +1,38 @@
+<div class="container">
+  <!-- No Data Message -->
+  <p *ngIf="Product.length<=0" class="no-data text-center">There are no Listings added yet!</p>
+  <!-- Listings  -->
+  <table class="table table-bordered" *ngIf="Product.length>0">
+    <thead class="table-success">
+      <tr>
+        <th scope="col">Price</th>
+        <th scope="col">Locality</th>
+        <th scope="col">City</th>
+        <th scope="col">Province</th>
+        <th scope="col">Postal Code</th>
+        <th scope="col">Building Type</th>
+        <th scope="col">Description</th>
+        <th scope="col center">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of Product; let i=index">
+        <th >{{product.price}}</th>
+        <th>{{product.locality}}</th>
+        <th>{{product.city}}</th>
+        <th>{{product.province}}</th>
+        <th>{{product.postalCode}}</th>
+        <th>{{product.buildingType}}</th>
+        <th>{{product.description}}</th>
+        <td class="text-center edit-block">
+          <span class="edit" [routerLink]="['/edit-product/', product._id]">
+            <button type="button" class="btn btn-success btn-sm">Edit</button>
+          </span>
+          <span class="delete" (click)="removeProduct(product,i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

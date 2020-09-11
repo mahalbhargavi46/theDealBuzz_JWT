@@ -1,0 +1,13 @@
+mat-card{
+  max-width: 400px;
+  margin-top: 50px;
+  align-content: center;
+  margin-left: 200px;
+  border: 2px black;
+}
+mat-form-field{
+  width:100%;
+}
+mat-spinner{
+  margin: auto;
+}
